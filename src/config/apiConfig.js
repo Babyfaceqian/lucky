@@ -1,2 +1,2 @@
 
-export const PREFIX = 'http://localhost:3000';
+export const PREFIX = 'http://kuka.zhangqiantech.com';

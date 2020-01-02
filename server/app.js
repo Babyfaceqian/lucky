@@ -21,7 +21,7 @@ async function start() {
 
     app.use(cors({
       origin: function (ctx) {
-        return ""; // 替换域名
+        return "*"; // 替换域名
       },
       // exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
       // maxAge: 5,
