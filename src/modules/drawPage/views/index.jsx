@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.less';
 import * as Fetch from '../apis';
-import { message, Input, Row, Col, Select, Button, Modal } from 'antd';
-import _ from 'lodash';
+import { message, Row, Col, Select, Button, Modal } from 'antd';
 import Background from '../../../components/background';
 let nameList = [];
 export default () => {
@@ -53,10 +52,10 @@ export default () => {
     for (let i = 0; i < count; i++) {
       names = names.concat(pushOneName());
     }
-    return _.compact(names);
+    return names.filter(d => !!d);
   }
   const draw = () => {
-    let temp = _.cloneDeep(template);
+    let temp = JSON.parse(JSON.stringify(template));
     let tempPrize = temp[type][prize];
     tempPrize.list.forEach(d => {
       d.names = pushNameByCount(d.count);

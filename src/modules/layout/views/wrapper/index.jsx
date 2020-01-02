@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './index.less';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+import { Layout, Menu } from 'antd';
+const { Content, Sider } = Layout;
 import { menuList } from 'config';
 import { Link } from 'react-router-dom';
 export default class Wrapper extends React.Component {

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.less';
 import * as Fetch from '../apis';
-import { message, Input, Row, Col } from 'antd';
+import { message, Row, Col } from 'antd';
 import XLSX from 'xlsx';
-import _ from 'lodash';
 export default () => {
   const [templateHtml, setTemplateHtml] = useState('')
   const [nameListHtml, setNameListHtml] = useState('')
@@ -54,8 +53,10 @@ export default () => {
       let nameListHtml = XLSX.utils.sheet_to_html(second_temp_worksheet);
       setNameListHtml(nameListHtml);
       data.shift();
-      data = _.uniq(_.flatten(data));
-      fetchUpload({ template: obj, nameList: data, initial: true, templateHtml, nameListHtml });
+      let flattenData = data.reduce((prev, next) => {
+        return prev.concat(next);
+      }, [])
+      fetchUpload({ template: obj, nameList: flattenData, initial: true, templateHtml, nameListHtml });
     };
     reader.readAsArrayBuffer(f);
   }
