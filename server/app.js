@@ -1,28 +1,20 @@
 import Koa from 'koa';
 import path from 'path';
 const app = new Koa();
-import webpack from 'webpack';
-import koaWebpack from 'koa-webpack';
-import webpackConfigDev from '../webpack/config.dev';
-import webpackConfigProd from '../webpack/config.prod';
 import logger from 'koa-logger';
 import bodyParser from 'koa-bodyparser';
 import cors from 'koa-cors';
-
+import serve from 'koa-static';
+import fs from 'fs';
 async function start() {
   try {
-    let webpackConfig = process.env.NODE_ENV === 'development' ? webpackConfigDev : webpackConfigProd;
-    let compiler = webpack(webpackConfig);
-    const middleware = await koaWebpack({ compiler });
-
-    app.use(middleware);
-
+    app.use(serve(path.resolve(__dirname, "../dist")));
     app.use(async (ctx, next) => {
       // console.log('ctx', ctx);
       if (ctx.url === '/') {
-        const filename = path.resolve(webpackConfig.output.path, 'index.html')
+        const filename = path.resolve(__dirname, '../dist/index.html')
         ctx.response.type = 'html'
-        ctx.response.body = middleware.devMiddleware.fileSystem.createReadStream(filename)
+        ctx.response.body = fs.createReadStream(filename)
       }
       await next();
     });
