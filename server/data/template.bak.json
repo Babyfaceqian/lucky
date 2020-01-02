@@ -1,0 +1,90 @@
+{
+	"实物奖": {
+		"特等奖": {
+			"done": false,
+			"list": [
+				{
+					"awards": "A1",
+					"count": 10
+				},
+				{
+					"awards": "A2",
+					"count": 5
+				},
+				{
+					"awards": "A3",
+					"count": 2
+				}
+			]
+		},
+		"一等奖": {
+			"done": false,
+			"list": [
+				{
+					"awards": "B1",
+					"count": 10
+				},
+				{
+					"awards": "B2",
+					"count": 10
+				},
+				{
+					"awards": "B3",
+					"count": 10
+				}
+			]
+		}
+	},
+	"现金奖": {
+		"一等奖": {
+			"done": false,
+			"list": [
+				{
+					"awards": "B4",
+					"count": 10
+				},
+				{
+					"awards": "B5",
+					"count": 10
+				}
+			]
+		},
+		"二等奖": {
+			"done": false,
+			"list": [
+				{
+					"awards": "B6",
+					"count": 10
+				},
+				{
+					"awards": "B7",
+					"count": 10
+				},
+				{
+					"awards": "B8",
+					"count": 10
+				},
+				{
+					"awards": "B9",
+					"count": 10
+				},
+				{
+					"awards": "B10",
+					"count": 10
+				},
+				{
+					"awards": "B11",
+					"count": 10
+				},
+				{
+					"awards": "B12",
+					"count": 10
+				},
+				{
+					"awards": "B13",
+					"count": 10
+				}
+			]
+		}
+	}
+}
