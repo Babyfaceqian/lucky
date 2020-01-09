@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.less';
 import * as Fetch from '../apis';
 import { message, Row, Col, Select, Button, Modal } from 'antd';
+import XLSX from 'xlsx';
 import Background from '../../../components/background';
 let nameList = [];
 export default () => {
@@ -20,7 +21,7 @@ export default () => {
   const fetchNameList = () => {
     Fetch.getNameList().then(res => {
       if (res && res.success) {
-        nameList = res.data;
+        nameList = [...res.data];
         setList(res.data);
       }
     })
@@ -91,6 +92,28 @@ export default () => {
     })
   }
 
+  const handleExport = () => {
+    let wb = XLSX.utils.book_new();
+    let types = Object.keys(template);
+    types.forEach(type => {
+      let prizes = Object.keys(template[type]);
+      prizes.forEach(prize => {
+        console.log(template, type, prize);
+        let list = template[type][prize].list;
+        let result = [];
+        list.forEach(li => {
+          result.push([
+            li.awards,
+            ...(li.names || [])
+          ])
+        });
+        let ws = XLSX.utils.aoa_to_sheet(result);
+        XLSX.utils.book_append_sheet(wb, ws, `${type}-${prize}`);
+      });
+      XLSX.writeFile(wb, 'result.xlsx');
+    })
+  }
+
   useEffect(() => {
     fetchTemplate();
     fetchNameList();
@@ -158,6 +181,7 @@ export default () => {
           }
         </Col>
       </Row>}
+      <div className={styles.export} onClick={handleExport}>导出</div>
       <div className={styles.reset} onClick={handleReset}>重置</div>
     </div>
   )

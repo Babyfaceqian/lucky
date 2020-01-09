@@ -1,35 +1,62 @@
 .drawPage {
   font-size: 18px;
+
   .title {
     text-align: center;
-    font-size: 38px;
+    font-size: 48px;
     padding: 24px;
   }
+
   .actionBar {
     margin-top: 20px;
+
     .selectLabel {
       text-align: right;
     }
+
     .select {
       width: 100%;
     }
   }
+
   .result {
     margin-top: 30px;
+
     .resultLabel {
       text-align: center;
-      > div {
+      padding-top: 20px;
+
+      >div {
         padding-bottom: 20px;
       }
     }
+
     .resultContent {
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .awards {
+        min-width: 140px;
+        padding-top: 20px;
+      }
+
       .awardsName {
         padding-bottom: 20px;
       }
+      
+      .luckyName {
+        font-weight: bold;
+        font-size: larger;
+      }
     }
   }
+}
+.export {
+  position: fixed;
+  top: 10px;
+  right: 50px;
+  cursor: pointer;
 }
 .reset {
   position: fixed;

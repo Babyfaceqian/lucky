@@ -41,7 +41,7 @@ export default class Wrapper extends React.Component {
             })}
           </Menu>
         </Sider>
-        <Layout>
+        <Layout className={styles.layoutContent}>
           {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
           <Content style={{ margin: '0 16px' }}>
             {this.props.children}
