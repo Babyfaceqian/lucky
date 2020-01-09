@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.less';
 const fontSizeMap = [12, 16, 20, 24];
-const colorMap = ['#00BCD4', '#FF5252', '#B2EBF2', '#4CAF50'];
+const colorMap = ['#14D100', '#00A383', '#5ED1BA', '#B6F63E'];
 let interval;
 export default (props) => {
   const { list = [], animate } = props;
