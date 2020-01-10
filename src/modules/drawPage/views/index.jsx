@@ -110,8 +110,8 @@ export default () => {
         let ws = XLSX.utils.aoa_to_sheet(result);
         XLSX.utils.book_append_sheet(wb, ws, `${type}-${prize}`);
       });
-      XLSX.writeFile(wb, 'result.xlsx');
     })
+    XLSX.writeFile(wb, 'result.xlsx');
   }
 
   useEffect(() => {

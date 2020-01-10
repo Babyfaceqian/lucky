@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: '[hash].bundle.js',
     path: distPath,
-    publicPath: '/static'
+    publicPath: './'
   },
   devtool: 'inline-source-map',
   module: {
